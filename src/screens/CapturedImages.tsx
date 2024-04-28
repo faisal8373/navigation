@@ -7,23 +7,7 @@ import firestore from '@react-native-firebase/firestore';
 
 
 type CapturedProps = NativeStackScreenProps<RootStackPramList, 'CapturedImages'>
-// let data = [
-//   {
-//     id: '1',
-//     imageUrl: 'Image1',
-//     productName: 'Product1'
-//   },
-//   {
-//     id: '2',
-//     imageUrl: 'Image2',
-//     productName: 'Product2'
-//   },
-//   {
-//     id: '3',
-//     imageUrl: 'Image3',
-//     productName: 'Product3'
-//   },
-// ]
+
 
 const CapturedImages = ({navigation}: CapturedProps) => {
 
@@ -41,7 +25,6 @@ const addProducts = async (imageUrl: string, productName: string ) =>{
     const productCollection =  firestore().collection('products').get().then((querySnapshot) => {
       querySnapshot.forEach(snapshot => {
           data.push(snapshot.data());
-          // console.log(data);
       })
   })
     return productCollection
