@@ -4,32 +4,21 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackPramList } from '../App'
 import ImageDetails from './ImageDetails'
 import firestore from '@react-native-firebase/firestore';
-
+import Slice from '../components/Slice'
+import { addProduct } from '../components/Slice'
 
 type CapturedProps = NativeStackScreenProps<RootStackPramList, 'CapturedImages'>
 
 
 const CapturedImages = ({navigation}: CapturedProps) => {
 
-let data = new Array()
+
 
 const addProducts = async (imageUrl: string, productName: string ) =>{
    await firestore().collection('products').add({imageUrl: imageUrl, productName: productName})
 
 }
 
-
-  const getProducts = () =>{
-   
-
-    const productCollection =  firestore().collection('products').get().then((querySnapshot) => {
-      querySnapshot.forEach(snapshot => {
-          data.push(snapshot.data());
-      })
-  })
-    return productCollection
-}
-getProducts()
   return (
     <View style={styles.container}>
      

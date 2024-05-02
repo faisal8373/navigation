@@ -57,13 +57,6 @@ function App(): React.JSX.Element {
      component={ScanBarcode}
      options={{title: 'Scan Barcode'}}
      />
-{/*     
-    <Stack.Screen 
-     name= 'CameraScreen'
-     component={CameraScreen}
-     options={{title: 'Scan Barcode'}}
-     /> */}
-
    
      <Stack.Screen 
      name= 'ProductDetails'
